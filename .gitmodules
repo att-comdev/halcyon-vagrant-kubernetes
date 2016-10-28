@@ -1,0 +1,3 @@
+[submodule "halcyon-kubernetes"]
+	path = halcyon-kubernetes
+	url = https://github.com/att-comdev/halcyon-kubernetes.git
