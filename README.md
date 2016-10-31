@@ -1,7 +1,7 @@
-# halcyon-kubernetes
-Please see [release notes](https://github.com/att-comdev/halcyon-kubernetes/releases) for current and planned features.
+# halcyon-vagrant-kubernetes
+Please see [release notes](https://github.com/att-comdev/halcyon-vagrant-kubernetes/releases) for current and planned features.
 
-Ansible playbooks for a kubadm-based kubernetes deployment, on supporting any cloud and any kubeadm-enabled OS.
+A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcyon-kubernetes) -- Ansible playbooks for a kubadm-based kubernetes deployment, supporting any cloud and any kubeadm-enabled OS.
 
 **FAIR WARNING:**
 There is currently a known issue with Vagrant and SDN deployments using NAT (the virtualbox deployment). See the following reported issues:
@@ -35,8 +35,10 @@ Please see /docs/README.md for more information about SDN providers, plugins, an
 To use this project, simply use vagrant to bring up your environment:
 
 ```
-v1k0d3n@machine:~ $ git clone https://github.com/att-comdev/halcyon-kubernetes.git
+v1k0d3n@machine:~ $ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
 v1k0d3n@machine:~ $ cd halcyon-kubernetes
+v1k0d3n@machine:~ $ git submodule init
+v1k0d3n@machine:~ $ git submodule update
 v1k0d3n@machine:~ $ vagrant up
 ```
 

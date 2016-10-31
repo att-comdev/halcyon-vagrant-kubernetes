@@ -22,7 +22,7 @@ $ssh_port          = 22
 
 # Ansible Details:
 $ansible_limit     = "all"
-$ansible_playbook  = "kube-deploy/kube-deploy.yml"
+$ansible_playbook  = "halcyon-kubernetes/kube-deploy/kube-deploy.yml"
 $ansible_inventory = ".vagrant/provisioners/ansible/inventory_override"
 
 # Openstack Authentication Information:
