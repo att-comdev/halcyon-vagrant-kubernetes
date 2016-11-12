@@ -107,7 +107,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           "kube-cluster:children" => ["kube-masters", "kube-workers"],
         }
         ansible.extra_vars        = {
-          "public_iface" => "enp0s8"
+          "public_iface" => $public_interface
         }
         # Additional Ansible tools for debugging:
         #ansible.inventory_path = $ansible_inventory

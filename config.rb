@@ -6,6 +6,7 @@ $kube_count        = 3
 $git_commit        = "6a7308d"
 $subnet            = "192.168.236"
 $forwarded_ports   = {}
+$public_interface  = "eth1"
 
 # Ansible Declarations:
 #$number_etcd       = "kube[1:2]"
