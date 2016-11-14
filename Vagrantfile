@@ -17,7 +17,8 @@ end
 
 # Install any Required Plugins
 missing_plugins_installed = false
-required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider)
+required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider
+                      vagrant-libvirt)
 
 required_plugins.each do |plugin|
   if !Vagrant.has_plugin? plugin
@@ -73,6 +74,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.name = "kube#{kb}"
         vb.customize ["modifyvm", :id, "--memory", $kube_memory]
         vb.customize ["modifyvm", :id, "--cpus", $kube_vcpus]
+      end
+      # Libvirt provider (Optional --provider=libvirt):
+      kube.vm.provider "libvirt" do |lv|
+        lv.driver = "kvm"
+        lv.memory = $kube_memory
+        lv.cpus = $kube_vcpus
       end
       # Openstack Provider (Optional --provider=openstack):
       kube.vm.provider "openstack" do |os|
