@@ -80,7 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--memory", $kube_memory]
         vb.customize ["modifyvm", :id, "--cpus", $kube_vcpus]
       end
-      # Virtualbox Provider (Optional --provider=libvirt)
+      # Libvirt Provider (Optional --provider=libvirt)
       kube.vm.provider "libvirt" do |lv|
         lv.driver = "kvm"
         lv.memory = $kube_memory
