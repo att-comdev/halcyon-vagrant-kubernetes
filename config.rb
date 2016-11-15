@@ -5,6 +5,7 @@ $kube_vcpus        = 1
 $kube_count        = 3
 $git_commit        = "6a7308d"
 $subnet            = "192.168.236"
+$public_iface      = "enp0s8"
 $forwarded_ports   = {}
 
 # Ansible Declarations:
