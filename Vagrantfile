@@ -17,8 +17,7 @@ end
 
 # Install any Required Plugins
 missing_plugins_installed = false
-required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider vagrant-proxyconf
-                      vagrant-libvirt)
+required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider vagrant-proxyconf)
 
 required_plugins.each do |plugin|
   if !Vagrant.has_plugin? plugin
