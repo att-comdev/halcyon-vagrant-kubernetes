@@ -17,7 +17,7 @@ end
 
 # Install any Required Plugins
 missing_plugins_installed = false
-required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider)
+required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider vagrant-proxyconf)
 
 required_plugins.each do |plugin|
   if !Vagrant.has_plugin? plugin
@@ -61,6 +61,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # NETWORK-SETTINGS: eth1 configured in using the $subnet variable:
       kube.vm.network "private_network", ip: "172.16.35.1#{kb}", auto_config: true
 #      kube.vm.network "public_network", ip: "#{$subnet}.#{kb}"
+      if $enable_proxy
+        config.proxy.http     = $proxy_http
+        config.proxy.https    = $proxy_https
+        config.proxy.no_proxy = "localhost,127.0.0.1"
+      end
 
       if $expose_docker_tcp
         kube.vm.network "forwarded_port", guest: 2375, host: ($expose_docker_tcp + i - 1), auto_correct: true

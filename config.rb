@@ -38,3 +38,9 @@ $os_floatnet       = "public"
 $os_fixednet       = ['vagrant-net']
 $os_keypair        = "your_ssh_keypair"
 $os_secgroups      = ["default"]
+
+# Proxy Configuration (only use if deploying behind a proxy):
+$proxy_enable      = false 
+$proxy_http        = "http://proxy:8080"
+$proxy_https       = "https://proxy:8080"
+$proxy_no          = "localhost,127.0.0.1"
