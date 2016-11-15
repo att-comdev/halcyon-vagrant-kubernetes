@@ -59,6 +59,13 @@ v1k0d3n@machine:~ $ vagrant up --provider=libvirt
 
 NOTE: Please look over the options in `config.rb` for modifying number of nodes, subnet, and other information and if you want to make any modifications to the Ansible deployment, make changes to the `./kube-deploy/group_vars/all.yml` file.
 
+### Ubuntu Deployment Issues:
+
+If you are deploying project on a Ubuntu 16.04+ host, you may need to install the following dependencies to ensure that the Vagrant plugins get installed properly:
+
+`sudo apt-get install ruby-dev zlib1g-dev libgmp-dev libxml2-dev libssl-dev openssl libffi-dev`
+
+
 # TODO
 
 * Add conditionals for various deployments (using vagrant --provider flags; such as AWS provider).
