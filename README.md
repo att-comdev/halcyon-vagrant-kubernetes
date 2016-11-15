@@ -42,16 +42,23 @@ v1k0d3n@machine:~ $ git submodule update
 v1k0d3n@machine:~ $ vagrant up
 ```
 
+### Deploy directly to Openstack:
 When you want to use Openstack, edit the options in `./config.rb` to match your Openstack project, and deploy with the `--provider=openstack` flag:
 
 ```
 v1k0d3n@machine:~ $ vagrant up --provider=openstack
 ```
 
+### Deploy using Libvirt:
+If you would like to use libvirt rather than virtualbox, install the follow vagrant plugin and deploy with the `--provider=libvirt` flag:
+
+```
+v1k0d3n@machine:~ $ vagrant plugin install vagrant-libvirt
+v1k0d3n@machine:~ $ vagrant up --provider=libvirt
+```
+
 NOTE: Please look over the options in `config.rb` for modifying number of nodes, subnet, and other information and if you want to make any modifications to the Ansible deployment, make changes to the `./kube-deploy/group_vars/all.yml` file.
 
 # TODO
 
-* Add CentOS Support
 * Add conditionals for various deployments (using vagrant --provider flags; such as AWS provider).
-* Work on SDN support for NAT environments.
