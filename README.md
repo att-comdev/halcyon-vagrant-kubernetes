@@ -50,6 +50,18 @@ v1k0d3n@machine:~ $ vagrant up --provider=libvirt
 
 NOTE: Please look over the options in `config.rb` for modifying number of nodes, subnet, and other information and if you want to make any modifications to the Ansible deployment, make changes to the `./kube-deploy/group_vars/all.yml` file.
 
+
+### Accessing the cluster:
+To access the deployed cluster either log in to the node `kube1`:
+
+```
+v1k0d3n@machine:~ $ vagrant ssh kube1
+```
+or if kubectl is installed locally on the development host, you can alternatively use the provided helper-script to access the cluster:
+```
+v1k0d3n@machine:~ $ ./get-k8s-creds.sh
+```
+
 ### Ubuntu Deployment Issues:
 
 If you are deploying project on a Ubuntu 16.04+ host, you may need to install the following dependencies to ensure that the Vagrant plugins get installed properly:
