@@ -27,7 +27,7 @@ To use this project, simply use vagrant to bring up your environment:
 
 ```
 v1k0d3n@machine:~ $ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
-v1k0d3n@machine:~ $ cd halcyon-kubernetes
+v1k0d3n@machine:~ $ cd halcyon-vagrant-kubernetes
 v1k0d3n@machine:~ $ git submodule init
 v1k0d3n@machine:~ $ git submodule update
 v1k0d3n@machine:~ $ vagrant up
