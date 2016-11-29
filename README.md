@@ -13,7 +13,7 @@ A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcy
 
   * Virtualbox 5.0 (5.2 will not work with Vagrant)
   * Virtualbox Extensions for 5.0
-  * Ansible (version 2.1.1 and 2.1.2 tested)
+  * Ansible (version 2.1.1 and up tested)
   * Vagrant (1.8.4 or higher)
     - Following Vagrant Plugins (installed for you during first deploy):
       * vagrant-env
@@ -27,7 +27,7 @@ To use this project, simply use vagrant to bring up your environment:
 
 ```
 v1k0d3n@machine:~ $ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
-v1k0d3n@machine:~ $ cd halcyon-kubernetes
+v1k0d3n@machine:~ $ cd halcyon-vagrant-kubernetes
 v1k0d3n@machine:~ $ git submodule init
 v1k0d3n@machine:~ $ git submodule update
 v1k0d3n@machine:~ $ vagrant up
