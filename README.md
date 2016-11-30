@@ -3,13 +3,8 @@ Please see [release notes](https://github.com/att-comdev/halcyon-vagrant-kuberne
 
 A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcyon-kubernetes) -- Ansible playbooks for a kubadm-based kubernetes deployment, supporting any cloud and any kubeadm-enabled OS.
 
-**Currently Supported:**
 
-  * OS: Ubuntu 16.04 *(Centos 7 coming soon)*
-  * Network Deployment Options  *(Calico, Canal, Romana, Weave)*
-  * Providers: Virtualbox / Openstack *(AWS coming soon)*
-
-**Requirements:**
+## Requirements
 
   * Virtualbox 5.0 (5.2 will not work with Vagrant)
   * Virtualbox Extensions for 5.0
@@ -21,6 +16,7 @@ A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcy
       * vagrant-openstack-provider
 
 Please see /docs/README.md for more information about SDN providers, plugins, and other useful information. Pull requests are welcome!
+
 
 ## Instructions
 To use this project, simply use vagrant to bring up your environment:
