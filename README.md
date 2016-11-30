@@ -9,7 +9,7 @@ A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcy
   * Virtualbox 5.0 (5.2 will not work with Vagrant)
   * Virtualbox Extensions for 5.0
   * Ansible (version 2.1.1 and up tested)
-  * Vagrant (1.8.4 or higher)
+  * Vagrant (1.8.4 or higher, but **not 1.9 as there are known issues**)
     - Following Vagrant Plugins (installed for you during first deploy):
       * vagrant-env
       * vagrant-git
