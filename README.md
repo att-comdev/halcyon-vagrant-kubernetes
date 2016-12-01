@@ -29,6 +29,18 @@ v1k0d3n@machine:~ $ git submodule update
 v1k0d3n@machine:~ $ vagrant up
 ```
 
+### Configuration Helper
+A helper script is provided to set up basic common configuration options, it can
+be used to change the guest OS and Kubernetes version. It also supports changing
+between the default halcyon-kubernetes config and one optimized for OpenStack
+Kolla-Kubernetes development. For example, to setup a Kolla development environment
+running CentOS and Kubernetes v1.4.6 can simply be achieved by running:
+
+```
+v1k0d3n@machine:~ $ ./setup-halcyon.sh --guest-os centos --k8s-config kolla --k8s-version v1.4.6
+```
+
+
 ### Deploy directly to Openstack:
 When you want to use Openstack, edit the options in `./config.rb` to match your Openstack project, and deploy with the `--provider=openstack` flag:
 
