@@ -56,7 +56,7 @@ set_rb_value () {
   VARIABLE=$1
   VALUE=$2
   FILE=$3
-  sed -i "/^\$${VARIABLE}/c\\\$${VARIABLE} = \"${VALUE}\"" ${FILE}
+  sed -i "/^\$${VARIABLE}/c\\\$${VARIABLE} = ${VALUE}" ${FILE}
 }
 
 set_kolla_options () {
@@ -70,28 +70,28 @@ set_kolla_options () {
 echo "Setting up halcyon for: ${BOOTSTRAP_OS} with kubernetes ${KUBERNETES_VERSION} ($KUBERNETES_CONFIG)"
 
 if [[ "$BOOTSTRAP_OS" = "centos" ]]; then
-  set_rb_value kube_version centos/7 ${VAGRANT_VARS}
+  set_rb_value kube_version \"centos/7\" ${VAGRANT_VARS}
   set_yml_value bootstrap_os centos ${HALCYON_GROUP_VARS}
 
-  set_rb_value public_iface eth1 ${VAGRANT_VARS}
+  set_rb_value public_iface \"eth1\" ${VAGRANT_VARS}
   set_yml_value public_iface eth0 ${HALCYON_GROUP_VARS}
   set_yml_value nat_iface eth0 ${HALCYON_GROUP_VARS}
 
-  set_rb_value ssh_user centos ${VAGRANT_VARS}
+  set_rb_value ssh_user \"centos\" ${VAGRANT_VARS}
 
-  set_rb_value os_image centos-7.2 ${VAGRANT_VARS}
+  set_rb_value os_image \"centos-7.2\" ${VAGRANT_VARS}
 
 elif [[ "$BOOTSTRAP_OS" = "ubuntu" ]]; then
-  set_rb_value kube_version ubuntu/xenial64 ${VAGRANT_VARS}
+  set_rb_value kube_version \"ubuntu/xenial64\" ${VAGRANT_VARS}
   set_yml_value bootstrap_os ubuntu ${HALCYON_GROUP_VARS}
 
-  set_rb_value public_iface enp0s8 ${VAGRANT_VARS}
+  set_rb_value public_iface \"enp0s8\" ${VAGRANT_VARS}
   set_yml_value public_iface enp0s3 ${HALCYON_GROUP_VARS}
   set_yml_value nat_iface enp0s3 ${HALCYON_GROUP_VARS}
 
-  set_rb_value ssh_user ubuntu ${VAGRANT_VARS}
+  set_rb_value ssh_user \"ubuntu\" ${VAGRANT_VARS}
 
-  set_rb_value os_image ubuntu-trusty-16.04 ${VAGRANT_VARS}
+  set_rb_value os_image \"ubuntu-trusty-16.04\" ${VAGRANT_VARS}
 
 fi
 
@@ -103,7 +103,7 @@ if [[ "$KUBERNETES_CONFIG" = "default" ]]; then
   set_rb_value kube_vcpus 1 ${VAGRANT_VARS}
 
   set_rb_value kube_count 3 ${VAGRANT_VARS}
-  set_rb_value kube_workers kube[2:3] ${VAGRANT_VARS}
+  set_rb_value kube_workers \"kube[2:3]\" ${VAGRANT_VARS}
 
 elif [[ "$KUBERNETES_CONFIG" = "kolla" ]]; then
   set_kolla_options "true"
@@ -112,7 +112,7 @@ elif [[ "$KUBERNETES_CONFIG" = "kolla" ]]; then
   set_rb_value kube_vcpus 2 ${VAGRANT_VARS}
 
   set_rb_value kube_count 4 ${VAGRANT_VARS}
-  set_rb_value kube_workers kube[2:4] ${VAGRANT_VARS}
+  set_rb_value kube_workers \"kube[2:4]\" ${VAGRANT_VARS}
 
 fi
 
