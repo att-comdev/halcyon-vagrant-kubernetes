@@ -16,7 +16,7 @@ if $kube_memory < 512
 end
 
 if $kube_disk < 10
-  puts "WARNING: Your machine should have at least 10 GB of memory"
+  puts "WARNING: Your machine disk size should be at least 10 GB"
 end
 
 # Install any Required Plugins
