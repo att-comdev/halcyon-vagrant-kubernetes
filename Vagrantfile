@@ -15,9 +15,13 @@ if $kube_memory < 512
   puts "WARNING: Your machine should have at least 512 MB of memory"
 end
 
+if $kube_disk < 10
+  puts "WARNING: Your machine should have at least 10 GB of memory"
+end
+
 # Install any Required Plugins
 missing_plugins_installed = false
-required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider vagrant-proxyconf)
+required_plugins = %w(vagrant-env vagrant-git vagrant-openstack-provider vagrant-proxyconf vagrant-persistent-storage)
 
 required_plugins.each do |plugin|
   if !Vagrant.has_plugin? plugin
@@ -78,12 +82,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.name = "kube#{kb}"
         vb.customize ["modifyvm", :id, "--memory", $kube_memory]
         vb.customize ["modifyvm", :id, "--cpus", $kube_vcpus]
+        if $kube_disk > 10 #Attach additional disk
+          kube.persistent_storage.enabled = $disk_enabled
+          kube.persistent_storage.location = $disk_location+"kube#{kb}."+$disk_image_file
+          kube.persistent_storage.size = $kube_disk * 1024 - 10240
+        end
       end
       # Libvirt Provider (Optional --provider=libvirt)
       kube.vm.provider "libvirt" do |lv|
         lv.driver = "kvm"
         lv.memory = $kube_memory
         lv.cpus = $kube_vcpus
+        lv.machine_virtual_size = $kube_disk
       end
       # Openstack Provider (Optional --provider=openstack):
       kube.vm.provider "openstack" do |os|
