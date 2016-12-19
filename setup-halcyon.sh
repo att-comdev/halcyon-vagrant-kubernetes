@@ -8,7 +8,7 @@ set -e
 : ${VAGRANT_VARS:="./config.rb"}
 : ${BOOTSTRAP_OS:="ubuntu"}
 : ${KUBERNETES_CONFIG:="default"}
-: ${KUBERNETES_VERSION:="v1.5.0-beta.1"}
+: ${KUBERNETES_VERSION:="v1.5.1"}
 
 usage(){
 cat <<'EOT'
