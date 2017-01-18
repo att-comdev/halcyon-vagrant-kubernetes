@@ -76,6 +76,10 @@ If you are deploying project on a Ubuntu 16.04+ host, you may need to install th
 
 `sudo apt-get install ruby-dev zlib1g-dev libgmp-dev libxml2-dev libssl-dev openssl libffi-dev`
 
+NOTE: On Ubuntu 16.10, you may have to install libvirt-dev package to ensure the vagrant-libvirt plugin installs properly:
+
+`sudo apt-get install libvirt-dev`
+
 
 # TODO
 
