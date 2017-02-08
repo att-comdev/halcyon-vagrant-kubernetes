@@ -1,7 +1,7 @@
 # Kubernetes Details: Instances
 $kube_version      = "ubuntu/xenial64"
 $kube_memory       = 1024
-$kube_disk         = 15
+$kube_disk         = 10
 $kube_vcpus        = 1
 $kube_count        = 3
 $git_commit        = "6a7308d"
