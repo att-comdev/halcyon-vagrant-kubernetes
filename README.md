@@ -23,11 +23,12 @@ Please see /docs/README.md for more information about SDN providers, plugins, an
 To use this project, simply use vagrant to bring up your environment:
 
 ```
-v1k0d3n@machine:~ $ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
-v1k0d3n@machine:~ $ cd halcyon-vagrant-kubernetes
-v1k0d3n@machine:~ $ git submodule init
-v1k0d3n@machine:~ $ git submodule update
-v1k0d3n@machine:~ $ vagrant up
+$ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
+$ cd halcyon-vagrant-kubernetes
+$ git submodule init
+$ git submodule update
+$ (cd halcyon-kubernetes; make clean; make; source venv/bin/activate)
+$ vagrant up
 ```
 
 ### Configuration Helper
