@@ -14,6 +14,7 @@ A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcy
       * vagrant-env
       * vagrant-git
       * vagrant-openstack-provider
+      * vagrant-persistent-storage
 
 Please see /docs/README.md for more information about SDN providers, plugins, and other useful information. Pull requests are welcome!
 
