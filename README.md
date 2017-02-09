@@ -27,7 +27,7 @@ $ git clone https://github.com/att-comdev/halcyon-vagrant-kubernetes.git
 $ cd halcyon-vagrant-kubernetes
 $ git submodule init
 $ git submodule update
-$ (cd halcyon-kubernetes; make clean; make; source venv/bin/activate)
+$ cd halcyon-kubernetes; make; source venv/bin/activate; cd -
 $ vagrant up
 ```
 
