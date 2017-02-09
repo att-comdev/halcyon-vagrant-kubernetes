@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 set -e
 # This script simply sets up the basic defaults for a number of development
 # senarios, it is written not to be elegant, but to be portable across a wide
@@ -9,6 +9,18 @@ set -e
 : ${BOOTSTRAP_OS:="ubuntu"}
 : ${KUBERNETES_CONFIG:="default"}
 : ${KUBERNETES_VERSION:="v1.5.1"}
+
+set +e
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SED=`which gsed`
+    if [[ -z "$SED" ]]; then
+        echo "No suitable sed installed, please install gsed"
+        exit 1
+    fi
+else
+    SED=`which sed`
+fi
+set -e
 
 usage(){
 cat <<'EOT'
@@ -22,8 +34,6 @@ exit 0;
 
 # exit if there are no arguments
 [ $# -eq 0 ] && usage
-
-set -- `getopt -n$0 -u -a --longoptions "help guest-os: k8s-config: k8s-version:" "hg:c:v:" "$@"`
 
 # $# is the number of arguments
 while [ $# -gt 0 ]
@@ -49,14 +59,14 @@ set_yml_value () {
   VARIABLE=$1
   VALUE=$2
   FILE=$3
-  sed -i "/^${VARIABLE}/c\\${VARIABLE}: ${VALUE}" ${FILE}
+  $SED -i "/^${VARIABLE}/c\\${VARIABLE}: ${VALUE}" ${FILE}
 }
 
 set_rb_value () {
   VARIABLE=$1
   VALUE=$2
   FILE=$3
-  sed -i "/^\$${VARIABLE}/c\\\$${VARIABLE} = ${VALUE}" ${FILE}
+  $SED -i "/^\$${VARIABLE}/c\\\$${VARIABLE} = ${VALUE}" ${FILE}
 }
 
 set_kolla_options () {
