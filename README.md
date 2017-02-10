@@ -15,6 +15,10 @@ A Vagrant deployment of [halcyon-kubernetes](https://github.com/att-comdev/halcy
       * vagrant-git
       * vagrant-openstack-provider
       * vagrant-persistent-storage
+  * GNU sed (MacOS ships with BSD sed)
+    - [Homebrew](http://brew.sh)
+      * `brew install gnu-sed`
+
 
 Please see /docs/README.md for more information about SDN providers, plugins, and other useful information. Pull requests are welcome!
 

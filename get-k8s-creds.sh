@@ -1,4 +1,4 @@
-#/bin/sh
+#!/usr/bin/env bash
 set -e
 # Setting up kubectl creds
 mkdir -p ${HOME}/.kube
