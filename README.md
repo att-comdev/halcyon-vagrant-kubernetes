@@ -43,7 +43,7 @@ Kolla-Kubernetes development. For example, to setup a Kolla development environm
 running CentOS and Kubernetes v1.4.6 can simply be achieved by running:
 
 ```
-v1k0d3n@machine:~ $ ./setup-halcyon.sh --guest-os centos --k8s-config kolla --k8s-version v1.4.6
+$ ./setup-halcyon.sh --guest-os centos --k8s-config kolla --k8s-version v1.4.6
 ```
 
 
@@ -51,15 +51,15 @@ v1k0d3n@machine:~ $ ./setup-halcyon.sh --guest-os centos --k8s-config kolla --k8
 When you want to use Openstack, edit the options in `./config.rb` to match your Openstack project, and deploy with the `--provider=openstack` flag:
 
 ```
-v1k0d3n@machine:~ $ vagrant up --provider=openstack
+$ vagrant up --provider=openstack
 ```
 
 ### Deploy using Libvirt:
 If you would like to use libvirt rather than virtualbox, install the follow vagrant plugin and deploy with the `--provider=libvirt` flag:
 
 ```
-v1k0d3n@machine:~ $ vagrant plugin install vagrant-libvirt
-v1k0d3n@machine:~ $ vagrant up --provider=libvirt
+$ vagrant plugin install vagrant-libvirt
+$ vagrant up --provider=libvirt
 ```
 
 NOTE: Please look over the options in `config.rb` for modifying number of nodes, subnet, and other information and if you want to make any modifications to the Ansible deployment, make changes to the `./kube-deploy/group_vars/all.yml` file.
@@ -69,11 +69,11 @@ NOTE: Please look over the options in `config.rb` for modifying number of nodes,
 To access the deployed cluster either log in to the node `kube1`:
 
 ```
-v1k0d3n@machine:~ $ vagrant ssh kube1
+$ vagrant ssh kube1
 ```
 or if kubectl is installed locally on the development host, you can alternatively use the provided helper-script to access the cluster:
 ```
-v1k0d3n@machine:~ $ ./get-k8s-creds.sh
+$ ./get-k8s-creds.sh
 ```
 
 ### Ubuntu Deployment Issues:
